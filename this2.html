@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this2</title>
+</head>
+<body>
+    <button id="button">버튼</button>
+    <script>
+        //정리 
+        //this
+        // 3. constructor에서 인스턴스에 지정
+        // 4. 이벤트리스너안에서는 e.currentTarget
+
+        function people(){
+            this.name = "Lee"
+        }
+        var object = new people();
+        console.log(object);
+
+        document.getElementById('button').addEventListener('click', function(e){
+            console.log(this);
+            console.log(e.currentTarget);
+
+            var arr = [1,2,3];
+            arr.forEach(function(a){
+                console.log(a);
+                console.log(this); // window가 나옴
+            })
+        });
+
+        var object2 = {
+            names : ['kim', 'lee', 'park'],
+            함수 : function(){
+                console.log(this); //object2가 나옴
+                object2.names.forEach(function(){
+                    console.log(this); //window가 나옴
+                })
+                object2.names.forEach(()=>{
+                    console.log(this); // object2가 나옴
+                    // arrowfunction 특징:
+                    // 내부의 this값을 변화시킨지 않음 (외부 this 값 그대로 재사용 가능)
+                })
+            }
+        }
+        object2.함수();
+ 
+    </script>
+</body>
+</html>

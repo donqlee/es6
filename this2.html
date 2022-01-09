@@ -35,10 +35,11 @@
             names : ['kim', 'lee', 'park'],
             함수 : function(){
                 console.log(this); //object2가 나옴
-                object2.names.forEach(function(){
+                this.names.forEach(function(){
                     console.log(this); //window가 나옴
                 })
-                object2.names.forEach(()=>{
+                object2.names.forEach((a)=>{
+                    console.log(a);
                     console.log(this); // object2가 나옴
                     // arrowfunction 특징:
                     // 내부의 this값을 변화시킨지 않음 (외부 this 값 그대로 재사용 가능)

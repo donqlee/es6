@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spread operator</title>
+</head>
+<body>
+    <script>
+        // ...spread operator
+        // 1. Array에 붙이면 대괄호를 제거해줌
+        // 2. 문자에 붙이면 펼쳐줌 
+
+        
+
+        let array = ['hello', 'world'];
+        console.log(array)
+        console.log(...array); // 'hello', 'world'
+
+        let string = "hello";
+        console.log(string[0]) //h 문자도 인덱싱이 된다
+        console.log(...string) //'h','e','l','l','o'
+
+        let a = [1,2,3];
+        let b = [4,5];
+        let c = [...a, ...b];
+        console.log(c);
+        //쓸곳 1 . 어레이 합치기 / Deep copy
+
+       //reference data type(Array, Object)는 값을 공유를 한다.
+        let d = [1,2,3];
+        let e = d;
+        let f = [...d]; // 공유하지 않기 위해서는 벗긴다음에 다시 넣어주어야함
+         
+        d[3] = 4;
+        console.log(d); //[1,2,3,4]
+        console.log(e); //[1,2,3,4]
+        console.log(f); //[1,2,3]
+
+        //쓸곳 2. object 합치기 / Deep copy (중괄호도 벗김)
+        // 카피하다가 값 중복이 일어나면 -가장 뒤에 있는걸 적용
+        let o1 = {a : 1, b : 2};
+        let o2 = {...o1, c : 3};
+        console.log(o2) // {a: 1, b: 2, c: 3}
+
+
+
+
+
+
+    </script>
+</body>
+</html>

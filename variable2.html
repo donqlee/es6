@@ -7,7 +7,24 @@
     <title>variable2</title>
 </head>
 <body>
+    <div style="display: none;">버튼0</div>
+    <div style="display: none;">버튼1</div>
+    <div style="display: none;">버튼2</div>
+    
+    <button>버튼0</button> 
+    <button>버튼1</button> 
+    <button>버튼2</button> 
     <script>
+
+
+        let div = document.querySelectorAll('div');
+        let button = document.querySelectorAll('button');
+
+        for(let i = 0; i < 3; i++){
+            button[i].addEventListener('click', function(){
+                div[i].style.display="block";
+            })
+        }
         // 변수의 Hoisting 현상
 
        
@@ -29,30 +46,47 @@
         }
 
 
-
-        함수();
+        // 문제 1 
+        //함수();
         function 함수() {
             console.log(안녕);
             let 안녕 = 'Hello!';
         } 
         // 애러
         
-        함수();
-        var 함수 = function() {
+        // 문제 2
+        //함수2();
+        var 함수2 = function() {
             console.log(안녕);
             var 안녕 = 'Hello!';
         }
         //애러
         //var만 호이스팅이 된다.
 
+        // 문제 3
         let a = 1;
-        var 함수 = function() {
+        var 함수3 = function() {
             a = 2;
         }
         console.log(a);
         // 1;
 
-        
+        // 문제 4
+        let c = 1;
+        var d = 2;
+        window.c = 3; // 전역 변수
+        window.d = 4;
+        console.log(c); // let일 경우 전역 변수가 아닌 가장가까운 변수를 나타냄 
+        console.log(d); // 4
+        console.log(c + d);
+
+        // 문제 5
+        for (var i = 1; i < 6; i++){
+            console.log(i)
+            setTimeout(function(){console.log(i)}, i*1000);
+        }
+        // 6만 5번 나옴 var를 쓰면 (var의 전역변수 화 때문)
+        // let을 쓰면 1 2 3 4 5 가 나옴
     </script>
 </body>
 </html>

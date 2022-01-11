@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>datatype</title>
+</head>
+<body>
+    <script>
+        //그냥 문자와 숫자는 Primitive data type : 변수에 값이 그대로 저장됨
+        //array, object는 변수에 값이 저장 안됨 : 변수에 reference가 저장됨
+
+        //Reference data type은 메모리를 가리킴
+
+        let name1 = {name : 'kim'};
+        let name2 = name1;
+        name1.name = 'lee';
+        console.log(name2.name);  //lee
+        
+        let name3 = {name: 'lee'};
+
+        console.log(name1 == name3); //false  가리키는 메모리가 다르기 때문에
+
+        function nameChange(obj){
+            obj.name = 'Park';
+        }
+
+        nameChange(name1);
+        console.log(name1); //{name: 'Park'}
+
+        function nameChange2(obj){
+            obj = {name : 'park'}
+        }
+        console.log(name3); //{name: 'lee'} 바뀌지 않는다
+        //파라미터는 변수생성 & 할당과 똑같습니다.
+        //그 파라미터 변수에 ={}해봤자 원래 이름1 오브젝트는 변화가 없습니다.
+
+    </script>
+</body>
+</html> 

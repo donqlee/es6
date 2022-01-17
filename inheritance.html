@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //상속기능을 구현하는 ES5방법 : Object.create()
+        let parents = {name : 'Kim', age : 50};
+        let child = Object.create(parents);
+        child.age = 20;
+        let grandchild = Object.create(child);
+        
+        //상속기능을 구현하는 ES6방법 : class
+
+        class 부모{
+            constructor(name){
+                this.name = name;
+                //함수를 추가하고 싶으면 
+                //1. constructor에 추가하든가
+                this.sayHi = function(){ console.log('hello')}
+            }
+            //2. 요기에 쓰든가 (부모.prototype에 추가됨)
+            sayHi2(){
+                console.log('hi')
+            }
+            sayHello(){
+                console.log('hello')
+            }
+        }
+        let 자식 = new 부모();
+        
+        자식.__proto__;
+        Object.getPrototypeOf(자식);
+        부모.prototype;
+    </script>
+</body>
+</html>

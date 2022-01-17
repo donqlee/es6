@@ -23,6 +23,9 @@
             this.sayHi = function(){
                 console.log('안녕하세요 ' + this.name)
             }
+            this.hello = function(){
+                console.log('hello');
+            }
         }
         let student2 = new Student('Lee', 15);
         let student3 = new Student('Son', 15);
@@ -51,6 +54,16 @@
         // 내장함수는 어덯게 동작하는가
         var arr = [1,2,3];
         var arr = new Array(1,2,3);
+        
+
+        //1. prototype은 함수에만 몰래 생성된다.
+        //2. 내 부모 유전자(부모의 prototype)를 검사하고 싶다면 __proto__
+        console.log(student2.__proto__);
+        //3. __proto__를 이용해 부모님 강제 등록하기 
+        let parents = {name : 'Lee'};
+        let child = {};
+        child.__proto__ = parents;
+        console.log(child.name); // Lee
 
     </script>
 </body>

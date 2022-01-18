@@ -36,6 +36,22 @@
         자식.__proto__;
         Object.getPrototypeOf(자식);
         부모.prototype;
+
+        class People{
+            constructor(name){
+                this.name = name;
+                this.say = function(){
+                    console.log('say')
+                }
+            }
+            // say(){
+            //     console.log('say');
+            // }
+        }
+        let person = new People("lee");
+        console.log(person);
+        person.say();
+        console.log(person.__proto__);
     </script>
 </body>
 </html>

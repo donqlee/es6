@@ -45,9 +45,9 @@ class UserStorage{
     }
 }
 
-const userStorage = new UserStorage();
 const id = prompt('enter your id');
 const password = prompt('enter your password');
+const userStorage = new UserStorage();
 
 userStorage.loginUser(
     id,
@@ -58,10 +58,11 @@ userStorage.loginUser(
             (user) => {
                 console.log(user.name, user.role);
             },
-            (error) => console.log(error)
+            (error) => {
+                console.log(error);
+            }
         )
     },
-    (error) => {
-        console.log(error);
-    }
+    (error) => console.log(error)
+
 )

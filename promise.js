@@ -40,15 +40,20 @@ fetchNumber
 .then(num => console.log(num));
 
 //4. Error Handling
-const getOne = () =>
+const getHen = () =>
     new Promise((resolve, reject) => {
-        setTimeout(() => resolve('👍'), 1000)
+        setTimeout(() => resolve('🐓'), 1000)
     });
-const getTwo = (one) =>
+const getEgg = hen =>
     new Promise((resolve, reject) =>{
-        setTimeout(() => resolve(`${one} => ✌️`), 1000)
+        setTimeout(() => resolve(`${hen} => 🥚`), 1000)
     });
+const cook = egg =>
+    new Promise((resolve, reject) =>{
+        setTimeout(() => resolve(`${egg} => 🍩`),1000)
+    })
 
-getOne()
-    .then((one) => getTwo(one))
-    .then((two) => console.log(two)) 
+getHen()
+    .then((hen) => getEgg(hen))
+    .then((egg) => cook(egg))
+    .then(cook => console.log(cook)); 

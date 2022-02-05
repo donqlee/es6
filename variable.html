@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>variable</title>
+</head>
+<body>
+    <script>
+    
+        // 변수
+        // 선언, 할당, 범위
+
+        //var   재선언 O, 재할당 O, 범위 function
+        //let   재선언 X, 재할당 O, 범위 {}
+        //const 재선언 X ,재할당 X, 범위 {}
+        
+        //const로 오브젝트를 만들었을때 오브젝트 내부 값 변경해도 애러안남! 
+        const person = {name : 'Kim'};
+        person.name = 'Park'; //내부 값 변경은 가능
+
+        //수정불가능한 오브젝트를 만들고 싶으면 
+        Object.freeze(person);
+        person.name = "Lee";
+        
+        function 함수(){
+            var 이름 = "Kim";
+            이름;
+        }
+        //console.log(이름); 오류 생김 
+
+        if (true){
+            let 이름 = 'Park';
+        }
+        //console.log(이름); 오류 생김 범위가 {} 이기 때문에
+    </script>
+</body>
+</html>

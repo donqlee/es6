@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+<body>
+    <script>
+        let promise = new Promise(function(resolve, reject){
+            let diff = 1 + 1;
+            resolve(diff); 
+        }); //= 성공/실패 판정 기계
+
+        promise.then(function(result){ 
+           //프로미스가 성공일 경우 실행할 코드 
+           console.log(result);         
+        }).catch(function(){
+            //프로미스가 실패일 경우 실행할 코드
+            console.log('실패했어요');
+        })
+
+        //promise 예시 2 
+        let 프로미스 = new Promise(function(성공, 실패){
+            setTimeout(() => {
+                성공();
+            }, 1000);
+        });
+        프로미스.then(function(){
+            console.log('성공했어요')
+        }).catch(function(){
+            console.log('실패했어요')
+        })
+
+        //Promise의 3가지 상태
+        //1. 성공하면 <resolved>
+        //2. 판정 대기중이면 <pending>
+        //3. 실패하면 <rejected>
+     
+    </script>
+</body>
+</html>

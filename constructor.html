@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor</title>
+</head>
+<body>
+    <script>
+        //비슷한 object를 쉽게 찍어낼 수 있는 constructor 문법
+
+        let student1 = {name : 'Kim', 
+                        age : 15,
+                        sayHi : function(){
+                            console.log('안녕하세요 ' + this.name)
+                        }
+                    };
+        
+        function Student(name, age){  //constructor
+            this.name = name; // this는 새로 생성되는 object(instance)를 뜻함
+            this.age = age;
+            this.sayHi = function(){
+                console.log('안녕하세요 ' + this.name)
+            }
+            this.hello = function(){
+                console.log('hello');
+            }
+        }
+        let student2 = new Student('Lee', 15);
+        let student3 = new Student('Son', 15);
+        student2.sayHi();
+
+        function Product(name, price){
+            this.name = name;
+            this.price = price;
+            this.부가세 = function(){
+                console.log(this.price * 0.1)
+            }
+        }
+        let product1 = new Product('shirts', 50000);
+        let product2 = new Product('pants', 60000);
+
+        //prototype은 유전자
+        //prototype에 값을 추가하면 모든 자식들이 물려받기 가능
+        Student.prototype.gender = 'men';
+        student2.gender
+
+        //prototype의 동작 원리
+        // (1) 학생 1이 직접 gender를 가지고 있는가?
+        // (2) 그럼 학생1의 부모 유전자가 gender를 가지고 있는가? 
+        // 그럼 실행!
+
+        // 내장함수는 어덯게 동작하는가
+        var arr = [1,2,3];
+        var arr = new Array(1,2,3);
+        
+
+        //1. prototype은 함수에만 몰래 생성된다.
+        //2. 내 부모 유전자(부모의 prototype)를 검사하고 싶다면 __proto__
+        console.log(student2.__proto__);
+        //3. __proto__를 이용해 부모님 강제 등록하기 
+        let parents = {name : 'Lee'};
+        let child = {};
+        child.__proto__ = parents;
+        console.log(child.name); // Lee
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sync/async</title>
+</head>
+<body>
+    <script>
+        console.log(1);
+        
+        // 비동기식처리 (Asynchronous) = 오래걸리는 작업이 있으면 제껴두고 다른거부터 처리하는 방식 
+        //                           👆(자바스크립트가 아니라 자바스크립트 실행하는 브라우저 덕분에 가능, 웹브라우저의 특수성)
+        // setTimeout, addEventListener, ajax와 같은 것들은 Web API 대기실로 보내지고, 아래꺼가 실행된다.
+        setTimeout(()=>{console.log(2)}, 1000);
+        element.addEventListener('click', function(){})
+        $.ajax();
+        
+
+        console.log(3);
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor2</title>
+</head>
+<body>
+    <script>
+        //0. 오브젝트 자료 여러개 만들기 
+        function Student(name, age){
+            this.name = name;
+            this.age = age;
+            this.sayHi = function(){
+                console.log("안녕 나는 " + this.name + " 이야")
+            }
+        }
+        let 학생1 = new Student('Kim', 20);
+        console.log(학생1.sayHi());
+
+        //1. 다음 코드의 출력 결과는 무엇일까요 ?
+        function Parent() {
+            this.name = 'Kim';
+        }
+        var a = new Parent();
+
+        a.__proto__.name = 'Park';
+        
+        console.log(a.name) //Kim
+
+        Parent.prototype.sayHi = ()=>{
+            console.log(this);
+        }
+
+        // Parent.prototype.sayHi = function(){
+        //     console.log(this);
+        // } Kim이 나옴
+
+        a.sayHi(); // window가 나옴 (arrow function때문에)
+
+        //3. 모든 array애 적용할 수 있는 함수를 직접 새로 만들려면 어떻게 해야할까요?
+        let arr = [1,2,3,4,5,6,3,3,3,3,3,3,4];
+        Array.prototype.remove3 = function(){
+           arr = this.filter(a => a != 3);
+        }
+
+
+
+        arr.remove3();
+        console.log(arr)
+
+    </script>
+</body>
+</html>

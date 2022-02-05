@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrow</title>
+</head>
+<body>
+    <button id="버튼">버튼</button>
+    <button id="버튼2">버튼이에요</button>
+    <script>
+        //Arrow function 장점
+        // 1. 코드들을 기능으로 묶고 싶을때 사용
+        // 2. 파라미터가 한개 일 경우 소괄호 생략가능
+        // 3. reaturn 문장이 한줄일 경우 중괄호 생략 가능, 코드가 한줄 일 경우 중괄호 생략 가능
+
+        var a = a => a + 10;
+        a(5);
+        console.log(a(5));
+
+        [1,2,3,4].forEach(function(a){
+            console.log(a);
+        });
+        [5,6,7].forEach(a => console.log(a))
+        document.getElementById('버튼').addEventListener('click', function(e){
+            console.log(e)
+        });
+
+        // var 사람 = {
+        //     name: '손흥민',
+        //     sayHi: () => console.log("안녕 나는 " + 사람.name)
+        // }
+
+        var 사람 = {
+            name: '손흥민',
+            sayHi: function(){
+                console.log("안녕 나는 " + this.name)
+        }
+    }
+
+        사람.sayHi(); //안녕 나는 손흥민
+
+        // var 자료 = { 
+        //     data : [1,2,3,4,5],
+        //     전부더하기 : function(){
+        //         var sum = 0;
+        //         자료.data.forEach(a => sum += a)
+        //         console.log(sum);
+        //     }
+        // }
+        var 자료 = { 
+            data : [1,2,3,4,5]
+        }
+
+        자료.전부더하기 = function(){
+            var sum = 0;
+            this.data.forEach(a => sum += a)
+            console.log(sum);
+
+        }
+
+        자료.전부더하기();
+
+
+        // addEventListener에서 의 this e.currentTarget 이다.
+        // arrow function과 함께 하면 한번 더 상위의 this를 가리킨다.
+        document.getElementById('버튼2').addEventListener('click', function(){
+            setTimeout(() => { console.log(this.innerHTML) }, 2000)
+        });
+
+
+
+
+    </script>    
+</body>
+</html>
